@@ -54,6 +54,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $curi = implode('/', $this->uri->segment_array());
 $route[$curi.'/(:any)']  = $curi;
 
-$route['default_controller'] = 'Dashboard';
+$route['default_controller'] = 'Home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
