@@ -1,7 +1,7 @@
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /ci-skeleton/index.php?/$1 [L]
+RewriteRule ^(.*)$ /ci-skeleton-basic/index.php?/$1 [L]
 
 #add AllowOverride All in httpd.conf (in zend server) or apache2.conf (in apache2 linux)
 #<Directory "E:\web-server\zend\Apache2/htdocs">
