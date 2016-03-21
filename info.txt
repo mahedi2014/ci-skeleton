@@ -1,0 +1,1 @@
+git clone https://mahedi2014@bitbucket.org/mahedi2014/ci-skeleton.git
