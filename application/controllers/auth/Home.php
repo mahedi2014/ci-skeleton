@@ -19,10 +19,8 @@ class Home extends CI_Controller {
 		if($this->session->userdata('admin_logged_in')){
 			redirect('admin','true');
 		}else{
-//            $this->output->cache(1);
             $data['page_title'] = 'Signin | Ci-Skeleton-Basic';
-			$this->load->render_custom('auth/signin', 'auth/header', 'auth/footer', $data);
-//            $this->output->delete_cache('/auth/signin');
+			$this->load->render_default('auth/signin', $data);
 		}
 	}
 
