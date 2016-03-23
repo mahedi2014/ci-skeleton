@@ -40,6 +40,7 @@
                             <input type="submit" class="btn btn-lg btn-success btn-block" value="Sign Up">
                         </div>
                     </fieldset>
+                    <p>Have a account? <?php echo anchor(base_url().'user/signin', 'Sign In'); ?></p>
                     </form>
                 </div>
             </div>

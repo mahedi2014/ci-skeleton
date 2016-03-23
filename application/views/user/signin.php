@@ -34,6 +34,7 @@
                             <input type="submit" class="btn btn-lg btn-success btn-block" value="Sign In">
                         </div>
                     </fieldset>
+                    <p>You have no account? <?php echo anchor(base_url().'user/signup', 'Sign Up'); ?></p>
                     </form>
                 </div>
             </div>

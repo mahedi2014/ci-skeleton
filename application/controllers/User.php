@@ -11,9 +11,7 @@ class User extends CI_Controller {
         $this->load->helper('url');
         $this->load->helper('language');
         $this->load->library('form_validation');
-
         $this->load->library('session');
-
         $this->load->model('user_model');
     }
 
@@ -30,10 +28,6 @@ class User extends CI_Controller {
     {
         // create the data object
         $data = new stdClass();
-
-        // load form helper and validation library
-        $this->load->helper('form');
-        $this->load->library('form_validation');
 
         // set validation rules
         $this->form_validation->set_rules('username', 'Username', 'trim|required|alpha_numeric|min_length[4]|is_unique[users.username]', array('is_unique' => 'This username already exists. Please choose another one.'));
@@ -68,16 +62,12 @@ class User extends CI_Controller {
         // create the data object
         $data = new stdClass();
 
-        // load form helper and validation library
-        $this->load->helper('form');
-        $this->load->library('form_validation');
-
-        // set validation rules
+       // set validation rules
         $this->form_validation->set_rules('username', 'Username', 'required|alpha_numeric');
         $this->form_validation->set_rules('password', 'Password', 'required');
 
-        if ($this->form_validation->run() == false) {  // validation not ok, send validation errors to the view
-            $this->load->render_default('user/signin');
+        if ($this->form_validation->run() === false) {  // validation not ok, send validation errors to the view
+            $this->load->render_default('user/signin', $data);
 
         } else { // set variables from the form
             $username = $this->input->post('username');
@@ -90,7 +80,7 @@ class User extends CI_Controller {
 
                 // set session user data
                 $user_data = array(
-                    'user_id'   => (int)$user->id,
+                    'user_id'   => (int)$user_id,
                     'username'  => (string)$user->username,
                     'email'     => (string)$user->email,
                     'is_admin'  => (string)$user->is_admin,
