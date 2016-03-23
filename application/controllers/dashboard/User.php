@@ -11,14 +11,22 @@ class User extends CI_Controller {
         $this->load->helper('url');
         $this->load->helper('language');
         $this->load->library('form_validation');
+        $this->load->library('session');
 
         $this->load->model('user_model');
     }
 
     public function index()
     {
-        echo 'signin complete';
-        redirect(base_url().'user/signout','true');
+
+        if($this->session->userdata('username')) {
+           echo $this->session->userdata('username');
+            echo anchor(base_url().'user/signout', 'Signout');
+
+        }else {
+            redirect(base_url().'user/signout','true');
+        }
+
     }
 
 

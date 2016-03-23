@@ -19,7 +19,11 @@ class User extends CI_Controller {
 
     public function index()
     {
-        $this->load->render_default('user/signin');
+        if($this->session->userdata('username')) {
+            redirect(base_url().'dashboard/user','true');
+        }else {
+            $this->load->render_default('user/signin');
+        }
     }
 
     public function signup()
