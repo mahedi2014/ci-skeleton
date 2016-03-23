@@ -20,6 +20,7 @@ class Dashboard extends CI_Controller {
     {
         if($this->auth_model->chk_signin()) {
             $data = new stdClass();
+            $data->username = $this->session->userdata('username');
             $this->load->render_content('user/dashboard', $data);
         }
     }

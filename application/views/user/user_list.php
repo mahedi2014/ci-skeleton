@@ -21,9 +21,9 @@
                 <div class="col-lg-12">
                     <h4 class="page-header">Dashboard</h4>
                     <?php
-                    foreach($users as $user){
-                        echo $user['email'];
-                    }
+                    echo '<pre>';
+                    var_dump($users);
+                    echo '</pre>';
                     ?>
 
 
