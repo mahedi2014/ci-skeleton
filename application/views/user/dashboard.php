@@ -4,6 +4,7 @@
     <div id="page-wrapper">
         <div class="container-fluid">
             <div class="row">
+                <!--error notification-->
                 <?php if (validation_errors()) : ?>
                     <div class="alert alert-danger" role="alert">
                         <?= validation_errors() ?>
@@ -14,6 +15,8 @@
                         <?= $error ?>
                     </div>
                 <?php endif; ?>
+                <!--/error notification-->
+
 
                 <div class="col-lg-12">
                     <h1 class="page-header">Blank</h1>
