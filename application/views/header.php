@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><?php echo $page_title; ?></title>
+    <title>Project Name</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url(); ?>/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">

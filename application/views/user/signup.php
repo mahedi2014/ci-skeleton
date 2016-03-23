@@ -1,27 +1,45 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
 <div class="container">
     <div class="row">
+
+        <?php if (validation_errors()) : ?>
+            <div class="alert alert-danger" role="alert">
+                <?= validation_errors() ?>
+            </div>
+        <?php endif; ?>
+        <?php if (isset($error)) : ?>
+            <div class="alert alert-danger" role="alert">
+                <?= $error ?>
+            </div>
+        <?php endif; ?>
+
+
         <div class="col-md-4 col-md-offset-4">
             <div class="login-panel panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Please Sign In</h3>
+                    <h3 class="panel-title">Sign Up Form</h3>
                 </div>
                 <div class="panel-body">
-                    <form role="form">
-                        <fieldset>
-                            <div class="form-group">
-                                <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" placeholder="Password" name="password" type="password" value="">
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input name="remember" type="checkbox" value="Remember Me">Remember Me
-                                </label>
-                            </div>
-                            <!-- Change this to a button or input when using this as a form -->
-                            <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>
-                        </fieldset>
+                    <?= form_open() ?>
+                    <fieldset>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Username" name="username" type="username" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Confirm Password" name="c_password" type="password" value="">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-lg btn-success btn-block" value="Sign Up">
+                        </div>
+                    </fieldset>
                     </form>
                 </div>
             </div>
