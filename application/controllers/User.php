@@ -120,9 +120,7 @@ class User extends CI_Controller {
         // create the data object
         $data = new stdClass();
 
-        $session_array = $this->session->all_userdata();
-
-        if ($this->session->unset_userdata($session_array)) { // remove session data
+        if ($this->session->sess_destroy()) { // remove session data
             // user logout ok
             $this->load->render_default('user/signin', $data);
 
