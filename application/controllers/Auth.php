@@ -109,7 +109,8 @@ class Auth extends CI_Controller {
      * @access public
      * @return void
      */
-    public function signout() {
+    public function signout()
+    {
 
         // create the data object
         $data = new stdClass();

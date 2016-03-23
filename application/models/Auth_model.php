@@ -14,7 +14,8 @@ class Auth_model extends CI_Model {
 	 * @access public
 	 * @return void
 	 */
-	public function __construct() {
+	public function __construct()
+	{
 		
 		parent::__construct();
 		$this->load->database();
@@ -30,7 +31,8 @@ class Auth_model extends CI_Model {
 	 * @param mixed $password
 	 * @return bool true on success, false on failure
 	 */
-	public function create_user($username, $email, $password) {
+	public function create_user($username, $email, $password)
+	{
 		
 		$data = array(
 			'username'   => $username,
@@ -50,7 +52,8 @@ class Auth_model extends CI_Model {
 	 * @param mixed $password
 	 * @return bool true on success, false on failure
 	 */
-	public function resolve_user_login($username, $password) {
+	public function resolve_user_login($username, $password)
+	{
 		
 		$this->db->select('password');
 		$this->db->from('users');
@@ -68,7 +71,8 @@ class Auth_model extends CI_Model {
 	 * @param mixed $username
 	 * @return int the user id
 	 */
-	public function get_user_id_from_username($username) {
+	public function get_user_id_from_username($username)
+	{
 		
 		$this->db->select('id');
 		$this->db->from('users');
@@ -85,7 +89,8 @@ class Auth_model extends CI_Model {
 	 * @param mixed $user_id
 	 * @return object the user object
 	 */
-	public function get_user($user_id) {
+	public function get_user($user_id)
+	{
 		
 		$this->db->from('users');
 		$this->db->where('id', $user_id);
@@ -100,7 +105,8 @@ class Auth_model extends CI_Model {
 	 * @param mixed $password
 	 * @return string|bool could be a string on success, or bool false on failure
 	 */
-	private function hash_password($password) {
+	private function hash_password($password)
+	{
 		
 		return password_hash($password, PASSWORD_BCRYPT);
 		
@@ -114,10 +120,22 @@ class Auth_model extends CI_Model {
 	 * @param mixed $hash
 	 * @return bool
 	 */
-	private function verify_password_hash($password, $hash) {
+	private function verify_password_hash($password, $hash)
+	{
 		
 		return password_verify($password, $hash);
 		
 	}
+
+
+	public function chk_signin()
+	{
+		if($this->session->userdata('username')) {
+            return true;
+		}else{
+			redirect(base_url().'auth/signout','true');
+		}
+	}
+
 	
 }
