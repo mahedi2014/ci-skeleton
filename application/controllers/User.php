@@ -19,7 +19,7 @@ class User extends CI_Controller {
 
     public function index()
     {
-        $this->load->render_default('user/signup');
+        $this->load->render_default('user/signin');
     }
 
     public function signup()

@@ -18,7 +18,7 @@ class User extends CI_Controller {
     public function index()
     {
         echo 'signin complete';
-        redirect(base_url().'dashboard/user/index','true');
+        redirect(base_url().'user/signout','true');
     }
 
 
