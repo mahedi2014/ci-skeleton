@@ -19,7 +19,7 @@
 
 
                 <div class="col-lg-12">
-                    <h1 class="page-header">Blank</h1>
+                    <h4 class="page-header">Dashboard</h4>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>

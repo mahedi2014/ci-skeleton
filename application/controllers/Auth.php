@@ -67,8 +67,6 @@ class Auth extends CI_Controller {
         $this->form_validation->set_rules('password', 'Password', 'required');
 
         if ($this->form_validation->run() === false) {  // validation not ok, send validation errors to the view
-//            $this->load->render_default('auth/signin', $data);
-
             if($this->session->userdata('username')) {
                 redirect(base_url().'user/dashboard','true');
             }else {
