@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class User extends CI_Controller {
+class Dashboard extends CI_Controller {
     public function __construct() {
 
         parent::__construct();
@@ -21,10 +21,10 @@ class User extends CI_Controller {
 
         if($this->session->userdata('username')) {
            echo $this->session->userdata('username');
-            echo anchor(base_url().'user/signout', 'Signout');
+            echo anchor(base_url().'auth/signout', 'Signout');
 
         }else {
-            redirect(base_url().'user/signout','true');
+            redirect(base_url().'auth/signout','true');
         }
     }
 

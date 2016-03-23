@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class User extends CI_Controller {
+class Auth extends CI_Controller {
     public function __construct() {
 
         parent::__construct();
@@ -18,9 +18,9 @@ class User extends CI_Controller {
     public function index()
     {
         if($this->session->userdata('username')) {
-            redirect(base_url().'dashboard/user','true');
+            redirect(base_url().'user/dashboard','true');
         }else {
-            $this->load->render_default('user/signin');
+            $this->load->render_default('auth/signin');
         }
     }
 
@@ -36,7 +36,7 @@ class User extends CI_Controller {
         $this->form_validation->set_rules('c_password', 'Confirm Password', 'trim|required|min_length[6]|matches[password]');
 
         if ($this->form_validation->run() === false) { // validation not ok, send validation errors to the view
-            $this->load->render_default('user/signup', $data);
+            $this->load->render_default('auth/signup', $data);
 
         } else { // set variables from the form
             $username = $this->input->post('username');
@@ -44,14 +44,14 @@ class User extends CI_Controller {
             $password = $this->input->post('password');
 
             if ($this->user_model->create_user($username, $email, $password)) { // user creation ok
-                $this->load->render_default('user/signup_success', $data);
+                $this->load->render_default('auth/signup_success', $data);
 
             } else {
                 // user creation failed, this should never happen
                 $data->error = 'There was a problem creating your new account. Please try again.';
 
                 // send error to the view
-                $this->load->render_default('user/signup', $data);
+                $this->load->render_default('auth/signup', $data);
             }
         }
     }
@@ -67,7 +67,7 @@ class User extends CI_Controller {
         $this->form_validation->set_rules('password', 'Password', 'required');
 
         if ($this->form_validation->run() === false) {  // validation not ok, send validation errors to the view
-            $this->load->render_default('user/signin', $data);
+            $this->load->render_default('auth/signin', $data);
 
         } else { // set variables from the form
             $username = $this->input->post('username');
@@ -90,11 +90,11 @@ class User extends CI_Controller {
                 $this->session->set_userdata($user_data);
 
                 //after session redirect
-                redirect(base_url().'dashboard/user/index','true');
+                redirect(base_url().'user/dashboard','true');
 
             } else {  // send error to the view
                 $data->error = 'Wrong username or password.';
-                $this->load->render_default('user/signin', $data);
+                $this->load->render_default('auth/signin', $data);
             }
         }
     }
@@ -112,7 +112,7 @@ class User extends CI_Controller {
 
         if ($this->session->sess_destroy()) { // remove session data
             // user logout ok
-            $this->load->render_default('user/signin', $data);
+            $this->load->render_default('auth/signin', $data);
 
         } else {
             // there user was not logged in, we cannot logged him out,
