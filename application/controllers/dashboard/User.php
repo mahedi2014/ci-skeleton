@@ -26,7 +26,6 @@ class User extends CI_Controller {
         }else {
             redirect(base_url().'user/signout','true');
         }
-
     }
 
 
