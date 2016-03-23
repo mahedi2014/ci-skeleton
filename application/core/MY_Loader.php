@@ -36,16 +36,19 @@ class MY_Loader extends CI_Loader
 
     public function render_content($template_name, $vars = array(), $return = FALSE)
     {
-        $header = 'header';
-        $footer = 'footer';
+        $header = 'content_header';
+        $navigation = 'content_navigation';
+        $footer = 'content_footer';
         if($return):
             $content  = $this->view($header, $vars, $return);
+            $content  .= $this->view($navigation, $vars, $return);
             $content .= $this->view($template_name, $vars, $return);
             $content .= $this->view($footer, $vars, $return);
 
             return $content;
         else:
             $this->view($header, $vars);
+            $this->view($navigation, $vars);
             $this->view($template_name, $vars);
             $this->view($footer, $vars);
         endif;

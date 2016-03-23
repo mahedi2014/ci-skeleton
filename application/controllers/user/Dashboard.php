@@ -18,13 +18,12 @@ class Dashboard extends CI_Controller {
 
     public function index()
     {
-
         if($this->session->userdata('username')) {
             $data = new stdClass();
-            echo $this->session->userdata('username');
+//            echo $this->session->userdata('username');
 //            echo anchor(base_url().'auth/signout', 'Signout');
 
-            $this->load->render_default('user/dashboard', $data);
+            $this->load->render_content('user/dashboard', $data);
 
         }else {
             redirect(base_url().'auth/signout','true');
