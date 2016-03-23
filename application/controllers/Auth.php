@@ -12,7 +12,7 @@ class Auth extends CI_Controller {
         $this->load->helper('language');
         $this->load->library('form_validation');
         $this->load->library('session');
-        $this->load->model('user_model');
+        $this->load->model('auth_model');
     }
 
     public function index()
@@ -43,7 +43,7 @@ class Auth extends CI_Controller {
             $email    = $this->input->post('email');
             $password = $this->input->post('password');
 
-            if ($this->user_model->create_user($username, $email, $password)) { // user creation ok
+            if ($this->auth_model->create_user($username, $email, $password)) { // user creation ok
                 $this->load->render_default('auth/signup_success', $data);
 
             } else {
@@ -73,10 +73,10 @@ class Auth extends CI_Controller {
             $username = $this->input->post('username');
             $password = $this->input->post('password');
 
-            if ($this->user_model->resolve_user_login($username, $password)) {
+            if ($this->auth_model->resolve_user_login($username, $password)) {
 
-                $user_id = $this->user_model->get_user_id_from_username($username);
-                $user    = $this->user_model->get_user($user_id);
+                $user_id = $this->auth_model->get_user_id_from_username($username);
+                $user    = $this->auth_model->get_user($user_id);
 
                 // set session user data
                 $user_data = array(
