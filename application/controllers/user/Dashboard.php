@@ -10,7 +10,6 @@ class Dashboard extends CI_Controller {
         $this->load->helper('url');
         $this->load->helper('language');
         $this->load->library('form_validation');
-        $this->load->library('Email_Config');
 
         $this->load->library('session');
 
@@ -40,7 +39,32 @@ class Dashboard extends CI_Controller {
     {
         if($this->auth_model->chk_signin()) {
             $data = new stdClass();
-            $data->users = $this->email_config->index();
+
+
+            $this->load->library('email');
+
+            $emailConfig = array(
+                'protocol' => 'tls',
+                'smtp_host' => 'smtp.gmail.com',
+                'smtp_user' => 'paytechbd@gmail.com',
+                'smtp_pass' => 'mahediazad',
+                'smtp_port' => 587,
+                'crlf' => "\r\n"
+            );
+
+            $this->email->initialize($emailConfig);
+//            $this->load->library('email',$emailConfig);
+            $this->email->set_newline("\r\n");
+
+            $this->email->from('paytechbd@gmail.com', 'Your Name');
+            $this->email->to('mahedi2014@gmail.com');
+            $this->email->cc('mahedi2014@gmail.com');
+            $this->email->bcc('mahedi2014@gmail.com');
+            $this->email->subject('Email Test');
+            $this->email->message('Testing the email class.');
+            $this->email->send();
+
+            $data->users = $this->email->print_debugger();
             $this->load->render_content('user/email_send', $data);
         }
     }
