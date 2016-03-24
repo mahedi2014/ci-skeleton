@@ -10,6 +10,8 @@ class Dashboard extends CI_Controller {
         $this->load->helper('url');
         $this->load->helper('language');
         $this->load->library('form_validation');
+        $this->load->library('Email_Config');
+
         $this->load->library('session');
 
         $this->load->model('auth_model');
@@ -34,5 +36,12 @@ class Dashboard extends CI_Controller {
         }
     }
 
-
+    public function email_sending()
+    {
+        if($this->auth_model->chk_signin()) {
+            $data = new stdClass();
+            $data->users = $this->email_config->index();
+            $this->load->render_content('user/email_send', $data);
+        }
+    }
 }

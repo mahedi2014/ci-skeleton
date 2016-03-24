@@ -106,6 +106,10 @@
                     <?php echo anchor('user/dashboard/user_list', '<i class="fa fa-dashboard fa-fw"></i> User list'); ?>
                 </li>
 
+                <li>
+                    <?php echo anchor('user/dashboard/email_sending', '<i class="fa fa-dashboard fa-fw"></i> Email Sending'); ?>
+                </li>
+
             </ul>
         </div>
         <!-- /.sidebar-collapse -->
