@@ -4,16 +4,18 @@
     $(document).ready(function(){
         $('#signinForm').on('submit',function(e) {
             $.ajax({
-                url:'http://localhost:8080/ci-skeleton-basic/auth/test',
+                url: "<?php echo base_url().'auth/test' ;?>",
                 data: $(this).serialize(),
                 type:'POST',
                 beforeSend: function() {
-                    alert(1);
+                    $('#loading').show();
                 },
                 success:function(data){
                     var json = $.parseJSON(data);
-                    alert(json.statusMessage);
-                    alert(json.status);
+                    if(json.status){
+                        $('#loading').hide();
+                        alert(json.statusMessage);
+                    }
                 },
                 error:function(data){
                     alert(data);
@@ -37,7 +39,6 @@
                 <?= $error ?>
             </div>
         <?php endif; ?>
-
 
         <div class="col-md-4 col-md-offset-4">
             <div class="login-panel panel panel-default">
@@ -66,6 +67,5 @@
         </div>
     </div>
 </div>
-
 
 
