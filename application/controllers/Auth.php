@@ -125,4 +125,12 @@ class Auth extends CI_Controller {
 
         }
     }
+
+    public function test(){
+        $result = array(
+            'status' => 1,
+            'statusMessage' => 'this is a test'
+        );
+        echo json_encode($result);
+    }
 }

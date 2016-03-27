@@ -28,6 +28,8 @@
     <script src="<?php echo base_url(); ?>/assets/dist/respond.min.js"></script>
     <![endif]-->
 
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
 </head>
 
 <body>
