@@ -52,8 +52,8 @@ class Dashboard extends CI_Controller {
                 'crlf' => "\r\n"
             );
 
-            $this->email->initialize($emailConfig);
-//            $this->load->library('email',$emailConfig);
+//            $this->email->initialize($emailConfig);
+            $this->load->library('email',$emailConfig);
             $this->email->set_newline("\r\n");
 
             $this->email->from('paytechbd@gmail.com', 'Your Name');
