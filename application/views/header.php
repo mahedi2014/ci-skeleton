@@ -35,4 +35,4 @@
 
 <body>
 <!--Loading info-->
-<div class="alert alert-info text-center col-md-4" role="alert" id="loading" style="display: none;">Loading...</div>
+<div class="alert alert-info text-center" role="alert" id="loading" style="display: none;">Please wait data is loading...</div>

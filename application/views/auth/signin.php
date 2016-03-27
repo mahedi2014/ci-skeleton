@@ -15,6 +15,7 @@
                     if(json.status){
                         $('#loading').hide();
                         alert(json.statusMessage);
+                        location.reload(true);
                     }
                 },
                 error:function(data){
