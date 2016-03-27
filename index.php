@@ -1,5 +1,5 @@
 <?php
-require_once 'vendor/autoload.php';
+
 date_default_timezone_set("Asia/Dhaka");
 /**
  * CodeIgniter
@@ -291,4 +291,5 @@ switch (ENVIRONMENT)
  *
  * And away we go...
  */
+require_once 'vendor/autoload.php';
 require_once BASEPATH.'core/CodeIgniter.php';
