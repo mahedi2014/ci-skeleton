@@ -291,6 +291,5 @@ switch (ENVIRONMENT)
  *
  * And away we go...
  */
-
+require_once __DIR__.'/vendor/autoload.php';
 require_once BASEPATH.'core/CodeIgniter.php';
-require_once 'vendor/autoload.php';
