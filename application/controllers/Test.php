@@ -13,6 +13,8 @@ class Test extends CI_Controller {
         $this->load->library('form_validation');
         $this->load->library('session');
         $this->load->model('auth_model');
+
+        $this->load->library('mail');
     }
 
     /* -----------------------------------------------------
@@ -24,11 +26,11 @@ class Test extends CI_Controller {
          <h1>Mail Plugin Samples</h1>
          <hr>
             <ul>
-               <li><a href="/sample_basic">Sample Basic</a></li>
-               <li><a href="/sample_array">Sample Array</a></li>
-               <li><a href="/sample1">Sample 1 template html</a></li>
-               <li><a href="/sample2">Sample 2 template html & text</a></li>
-               <li><a href="/sample3">Sample 3 template plain-text</a></li>
+               <li><a href="test/sample_basic">Sample Basic</a></li>
+               <li><a href="test/sample_array">Sample Array</a></li>
+               <li><a href="test/sample1">Sample 1 template html</a></li>
+               <li><a href="test/sample2">Sample 2 template html & text</a></li>
+               <li><a href="test/sample3">Sample 3 template plain-text</a></li>
             </ul>
       ';
         exit($html);
@@ -57,7 +59,7 @@ class Test extends CI_Controller {
     {
         $data = array(
             'Juliet & Romeo',
-            'some_email@example.com',
+            'mahedi2014@gmail.com',
             'This is an example using an Array as a message, without an external template HTML',
             date('Y-m-d H:i:s'),
         );
