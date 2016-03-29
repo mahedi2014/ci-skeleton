@@ -26,6 +26,7 @@ class Test extends CI_Controller
     public function index()
     {
 	    $mail = new Mail();
+	    $mail->email_sending();
     }
 
 }
