@@ -1,8 +1,7 @@
 {
   "name": "CI Skeleton",
   "require": {
-    "php": ">=5.3.8",
-    "phpmailer/phpmailer": "v5.2.7"
+    "phpmailer/phpmailer": "~5.2"
   },
   "autoload": {
     "classmap": ["application/libraries/"],
