@@ -1,6 +1,6 @@
 <?php
-require '../vendor/mandrill/mandrill/src/Mandrill.php';
-class Email
+//require '../vendor/mandrill/mandrill/src/Mandrill.php';
+class Email_Mandrill
 {
     public $manrill;
     public $message;
