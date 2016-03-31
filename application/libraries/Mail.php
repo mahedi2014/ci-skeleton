@@ -48,7 +48,7 @@ class Mail
         global $error;
         $mail = new PHPMailer();
 
-        $mail->SMTPDebug  = 3;
+        $mail->SMTPDebug  = 1;
 
         $mail->IsSMTP();
         $mail->SMTPAuth = true;
@@ -62,8 +62,9 @@ class Mail
         $mail->Subject = $subject;
         $mail->Body = $body;
         $mail->AddAddress($to);
+
         if(!$mail->Send()) {
-            echo $error = 'Mail error: '.$mail->ErrorInfo;
+             $error = 'Mail error: '.$mail->ErrorInfo;
             return false;
         } else {
             echo $error = 'Message sent!';
