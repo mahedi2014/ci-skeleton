@@ -69,6 +69,17 @@ class Test extends CI_Controller
 
 	public function test_code()
 	{
+		$crypt = new Crypt();
+		$key = 'd0a7e7997b6d5fcd55f4b5c32611b87cd923e8883';
+		$content = '1d23';
+
+
+		  $c  = $crypt->mc_encrypt($content, $key);
+		echo strlen($c);
+
+
+		//$c = 'VMZoMwwllkRe4Z2Ay9xXl8zx3gcJX9oEl4yfCr9qHcJexDYVLN8m1L/65qqkUsNr3zSG/5Lzeq8Jabu1wsirne5InX3saOpzK/WTQ03x3l0TwEZZo8zm1r5pl4qLS8OD|9DU1DAKkxk64QuhzfcNdxzK/cWBmM5OahpQ1dyL3hc4=';
+		  $crypt->mc_decrypt($c, $key);
 
 	}
 }
