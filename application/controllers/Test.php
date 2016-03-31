@@ -20,7 +20,6 @@ class Test extends CI_Controller
 
     public function index()
     {
-	    $mail = new Mail();
 	    $this->email_smtp();
     }
 
@@ -57,6 +56,19 @@ class Test extends CI_Controller
 			return true;
 		}
 
+
+	}
+
+
+	public function send_email()
+	{
+		$this->mail->email_smtp();
+	}
+
+
+
+	public function test_code()
+	{
 
 	}
 }

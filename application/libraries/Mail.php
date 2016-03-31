@@ -3,7 +3,7 @@
 
 class Mail
 {
-    function email_sending()
+    /*function email_sending()
     {
         $this->CI = get_instance();
 
@@ -20,9 +20,6 @@ class Mail
             'wordwrap' => TRUE
         );
 
-
-//        fsockopen('ssl://smtp.zoho.com', '465', $errno, $error, '10');
-
         $this->CI->load->library('email', $config);
         $this->CI->email->set_newline("\r\n");
         $this->CI->email->from('noreply@mrcmanager.com', 'test'); // change it to yours
@@ -36,6 +33,41 @@ class Mail
         else
         {
             echo "failed";
+        }
+    }*/
+
+
+    public function email_smtp()
+    {
+        $to = 'mahedi2014@gmail.com';
+        $from = 'paytechbd@gmail.com';
+        $from_name = 'test';
+        $subject = 'test';
+        $body = 'test';
+
+        global $error;
+        $mail = new PHPMailer();
+
+        $mail->SMTPDebug  = 3;
+
+        $mail->IsSMTP();
+        $mail->SMTPAuth = true;
+        $mail->SMTPSecure = 'ssl';
+        $mail->Host = 'ssl://smtp.gmail.com';
+        $mail->Port = 465;
+        $mail->Username = 'paytechbd@gmail.com';
+        $mail->Password = 'mahediazad';
+
+        $mail->SetFrom($from, $from_name);
+        $mail->Subject = $subject;
+        $mail->Body = $body;
+        $mail->AddAddress($to);
+        if(!$mail->Send()) {
+            echo $error = 'Mail error: '.$mail->ErrorInfo;
+            return false;
+        } else {
+            echo $error = 'Message sent!';
+            return true;
         }
     }
 }
